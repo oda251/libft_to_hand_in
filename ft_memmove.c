@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 22:16:47 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/19 22:52:52 by yoda             ###   ########.fr       */
+/*   Created: 2023/09/19 21:36:02 by yoda              #+#    #+#             */
+/*   Updated: 2023/09/19 23:00:14 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memmove(void *s, int ch, size_t n)
 {
-	size_t	i;
+	size_t			i;
+	unsigned char	*dest;
 
+	dest = (unsigned char *) s;
 	i = -1;
 	while (++i < n)
-	{
-		*((unsigned char *)dst + i) = *((unsigned char *)src + i);
-	}
-	return (dst);
+		*(dest + i) = (unsigned char) ch;
+	return (dest);
 }
 
 // int main()
@@ -33,8 +33,8 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 // 	str[3] = 'd';
 // 	str[4] = '\0';
 // 	char *str2 = strdup(str);
-// 	ft_memcpy(str, "zxcaaa", 5);
-// 	memcpy(str2, "zxcaaa", 5);
+// 	ft_memset(str, 'a', 11);
+// 	memset(str2, 'a', 11);
 // 	printf(str);
 // 	printf("\n");
 // 	printf(str2);

@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:55:50 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/19 22:39:18 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/19 22:47:53 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 # define LIBFT_H
 # include <unistd.h>
 # include <stdio.h>
-
-typedef unsigned int	t_size;
 
 #endif

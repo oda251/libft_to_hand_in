@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 21:36:02 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/19 22:46:56 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/19 22:47:17 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_bzero(void *s, size_t n)
 {
-	t_size			i;
+	size_t			i;
 	unsigned char	*dest;
 
 	dest = (unsigned char *) s;
