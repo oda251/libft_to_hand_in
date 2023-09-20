@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   _ft_strlcat.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoda <yoda@studen.42tokyo.jp>              +#+  +:+       +#+        */
+/*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 02:33:25 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/20 02:33:25 by yoda             ###   ########.fr       */
+/*   Created: 2023/09/20 20:11:53 by yoda              #+#    #+#             */
+/*   Updated: 2023/09/20 20:11:53 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,18 @@
 
 size_t	ft_strlen(const char *str);
 
-char	*strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcat(char *restrict dst, const char *restrict src, size_t dstsize)
 {
-	const size_t	d_len = ft_strlen(dest);
+	const size_t	d_len = ft_strlen(dst);
 	const size_t	s_len = ft_strlen(src);
-	size_t	i;
+	size_t			i;
 
-	i = -1;
-	while (i < s_len || i < n - 1)
+	if (dstsize <= d_len)
+		return (dstsize + s_len);
+	i = d_len;
+	while (i < dstsize || i < s_len)
 	{
-		dest[i] = src[i];
+		dst[i] = src[i - d_len];
 	}
-	s_len[i] = '\0';
-	return (dest);
+	return (d_len + s_len);
 }

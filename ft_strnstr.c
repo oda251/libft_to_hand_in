@@ -13,29 +13,30 @@
 #include "libft.h"
 
 size_t	ft_strlen(const char *str);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const size_t	h_len = ft_strlen(dest);
-	const size_t	n_len = ft_strlen(src);
+	const size_t	h_len = ft_strlen(haystack);
+	const size_t	n_len = ft_strlen(needle);
 	size_t			i;
-	size_t			j;
 
-	i = -1;
-	while (++i < h_len - n_len)
+	i = 0;
+	while (i < h_len - n_len + 1 && i < len - n_len + 1)
 	{
 		if (ft_strncmp(haystack + i, needle, n_len) == 0)
-			return (haystack + i);
+			return ((char *)haystack + i);
+		i++;
 	}
 	return (NULL);
 }
 
-int main()
-{
-	char *s1 = "ABCDEFGH";
-	char *s2 = "DEF";
+// #include <string.h>
+// int main()
+// {
+// 	char *s1 = "ABCDEFGH";
+// 	char *s2 = "DEF";
 
-	printf("%s\n", ft_strncmp(s1, s2, 6));
-	printf("%s\n", strncmp(s1, s2, 6));
-}
+// 	printf("%s\n", ft_strnstr(s1, s2, 6));
+// 	printf("%s\n", strnstr(s1, s2, 6));
+// }
