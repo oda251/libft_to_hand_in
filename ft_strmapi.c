@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:50:26 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 16:56:36 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 20:45:58 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	while (s[i])
+	{
 		dest[i] = f(i, s[i]);
+		i++;
+	}
 	return (dest);
 }

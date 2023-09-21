@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:11:08 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 16:50:11 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 20:42:35 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ char	*ft_strjoin(char const *s1, const char *s2)
 	while (i < len1)
 	{
 		dest[i] = s1[len1];
+		i++;
 	}
 	while (i < len1 + len2)
 	{
 		dest[i - len1] = s2[i - len1];
+		i++;
 	}
 	return (dest);
 }

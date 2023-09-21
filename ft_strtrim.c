@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:24:41 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 17:40:00 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 17:42:06 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	return (dest);
 }
 
-int main()
-{
-	printf("%s\n", ft_strtrim("abcdefabcdefabcdef", "def"));
-}
+// int main()
+// {
+// 	printf("%s\n", ft_strtrim("abcdefabcdefabcdef", "def"));
+// }

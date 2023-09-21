@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 21:36:02 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 16:41:56 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 19:57:39 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,13 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t				i;
-	const unsigned char	*tmp = ft_memcpy(dest, src, n);
+	size_t	i;
+	void	*tmp;
 
+	tmp = calloc(n + 1, sizeof(char));
+	if (!tmp)
+		return (NULL);
+	tmp = ft_memcpy(tmp, src, n);
 	i = -1;
 	while (++i < n)
 		*((unsigned char *) dest + i) = *((unsigned char *) tmp + i);
