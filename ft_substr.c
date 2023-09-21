@@ -6,14 +6,11 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:02:37 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/20 21:10:30 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 17:07:05 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -36,3 +33,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	ft_strlcpy(dest, s + start, size + 1);
 	return (dest);
 }
+
+// int main ()
+// {
+// 	printf("%s\n", ft_substr("abcdefgeh", 2, 3));
+// }

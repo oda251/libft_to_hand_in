@@ -6,13 +6,11 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:36:40 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/20 20:44:57 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 15:28:46 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	*ft_bzero(void *s, size_t n);
 
 void	*ft_calloc(size_t count, size_t size)
 {

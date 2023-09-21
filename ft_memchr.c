@@ -19,8 +19,9 @@ void	*memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if ((unsigned char) s + i == c)
-			return ((unsigned char)s + i);
+		if (*((unsigned char *) s + i) == c)
+			return ((unsigned char *)s + i);
 		i++;
 	}
+	return ((unsigned char *)s + i);
 }

@@ -6,13 +6,11 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:11:08 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/20 21:24:16 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/21 16:50:11 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *str);
 
 char	*ft_strjoin(char const *s1, const char *s2)
 {
