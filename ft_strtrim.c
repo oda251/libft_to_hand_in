@@ -6,13 +6,13 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:24:41 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 17:42:06 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 22:52:54 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	in_set(char c, char const *set)
+static int	in_set(char c, char const *set)
 {
 	size_t	i;
 
@@ -26,19 +26,21 @@ int	in_set(char c, char const *set)
 	return (0);
 }
 
-size_t	count_len_trimmed(char const *s1, char const *set)
+static size_t	count_len_trimmed(char const *s1, char const *set)
 {
 	size_t	len;
 	size_t	i;
 
 	i = 0;
 	len = 0;
+	while (s1[i] && in_set(s1[i], set))
+		i++;
 	while (s1[i])
 	{
-		while (s1[i] && in_set(s1[i], set))
-			i++;
 		len++;
 		i++;
+		while (s1[i] && in_set(s1[i], set))
+			i++;
 	}
 	return (len);
 }
@@ -50,9 +52,10 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	i;
 
 	len = count_len_trimmed(s1, set);
-	dest = malloc(sizeof(char) * len);
+	dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);
+	dest[len] = '\0';
 	i = 0;
 	len = 0;
 	while (s1[i])
@@ -68,5 +71,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 // int main()
 // {
-// 	printf("%s\n", ft_strtrim("abcdefabcdefabcdef", "def"));
+// 	printf("%s::\n", ft_strtrim(" \n\t\r    hello \n
+// t\r world     \r\t\n\t \r\n", " \n\t\r"));
 // }

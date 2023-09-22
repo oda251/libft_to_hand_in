@@ -6,13 +6,13 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:45:00 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 17:39:18 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 22:57:41 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	words_count(char const *s, char c)
+static size_t	words_count(char const *s, char c)
 {
 	size_t	count;
 	size_t	i;
@@ -30,7 +30,7 @@ size_t	words_count(char const *s, char c)
 	return (count);
 }
 
-void	free_all(char ***dest)
+static void	free_all(char ***dest)
 {
 	size_t	i;
 
@@ -42,7 +42,7 @@ void	free_all(char ***dest)
 	}
 }
 
-int	initialize_split(char ***dest, char const *s, char c)
+static int	initialize_split(char ***dest, char const *s, char c)
 {
 	const size_t	size = words_count(s, c);
 
@@ -53,10 +53,11 @@ int	initialize_split(char ***dest, char const *s, char c)
 	return (1);
 }
 
-int	put_part(char **dest, char const *s, size_t start, size_t i)
+static int	put_part(char **dest, char const *s, size_t start, size_t i)
 {
 	static size_t	index = 0;
 
+	printf("%d %d\n", start, i);
 	dest[index] = ft_substr(s, start, i - start);
 	if (!dest[index])
 	{
@@ -94,11 +95,11 @@ char	**ft_split(char const *s, char c)
 	return (dest);
 }
 
-// int main(int c, char **v)
-// {
-// 	char **dest = ft_split(v[1], ' ');
-// 	for (int i=0; dest[i] != NULL; i++)
-// 	{
-// 		printf("%s\n", dest[i]);
-// 	}
-// }
+int main(int c, char **v)
+{
+	char **dest = ft_split(v[1], 0);
+	for (int i=0; dest[i] != NULL; i++)
+	{
+		printf("%s::\n", dest[i]);
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:55:50 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 21:36:37 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 21:56:02 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_memset(void *b, int c, size_t len);
 size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		in_set(char c, char const *set);
 char	*ft_strdup(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_itoa(int n);

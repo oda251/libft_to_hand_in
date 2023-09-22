@@ -6,13 +6,13 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 17:45:28 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 17:53:34 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 21:53:48 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	rec_putnbr_fd(int n, int fd)
+static void	rec_putnbr_fd(int n, int fd)
 {
 	if (!n)
 		return ;

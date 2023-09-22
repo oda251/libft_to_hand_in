@@ -6,36 +6,62 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:28:13 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 15:28:33 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 21:52:20 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+static int	solve(const char *str, const int sign)
+{
+	unsigned long	num;
+
+	num = 0;
+	while (ft_isdigit(*str))
+	{
+		if (num >= 1000000000000000000)
+		{
+			if (sign > 0)
+				return (-1);
+			return (0);
+		}
+		num = num * 10 + (*str - '0');
+		if (sign > 0)
+		{
+			if (num >= (unsigned long) LONG_MAX)
+				return (-1);
+		}
+		else if (num >= (unsigned long) LONG_MAX + 1)
+			return (0);
+		str++;
+	}
+	return (sign * num);
+}
+
+static int	ft_isspace(char c)
+{
+	if ((9 <= c && c <= 13) || c == ' ')
+		return (1);
+	return (0);
+}
+
 int	ft_atoi(const char *str)
 {
-	int		sign;
-	long	num;
-	size_t	i;
+	int	sign;
 
+	while (ft_isspace(*str))
+		str++;
 	if (!*str || !(*str == '-' || *str == '+' || ft_isdigit(*str)))
 		return (0);
 	sign = 1;
-	i = 0;
 	if (*str == '-')
 	{
 		sign = -1;
-		i++;
+		str++;
 	}
 	else if (*str == '+')
-		i++;
-	num = 0;
-	while (ft_isdigit(*(str + i)))
-	{
-		num = num * 10 + (*(str + i) - '0');
-		i++;
-	}
-	return (sign * num);
+		str++;
+	return (solve(str, sign));
 }
 
 // int	main(int c, char **v) {

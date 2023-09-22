@@ -6,13 +6,13 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:18:51 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 16:49:40 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 21:53:27 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_dest(char **dest, long ln)
+static int	get_dest(char **dest, long ln)
 {
 	int		digit;
 
@@ -39,7 +39,7 @@ int	get_dest(char **dest, long ln)
 	return (digit);
 }
 
-void	put_nums(char *dest, long ln, int size)
+static void	put_nums(char *dest, long ln, int size)
 {
 	while (--size >= 0)
 	{

@@ -14,14 +14,17 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	const size_t	h_len = ft_strlen(haystack);
+	size_t			h_len;
 	const size_t	n_len = ft_strlen(needle);
 	size_t			i;
 
+	if (!*needle)
+		return ((char *)haystack);
 	if (!len)
 		return (NULL);
-	if (!*needle)
-		return ((char *)haystack + ft_strlen(haystack));
+	if (!haystack)
+		return (NULL);
+	h_len = ft_strlen(haystack);
 	if (h_len < n_len || len < n_len)
 		return (NULL);
 	i = 0;

@@ -31,11 +31,11 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 
 // int main()
 // {
-// 	char s1[10];
-// 	char s3[10];
-// 	char *s2 = "DEF";
+// 	char *s1 = NULL;
+// 	char *s2 = NULL;
+// 	char *s3 = "DEF";
 
-// 	printf("%lu\n", ft_strlcpy(s1, s2, 4));
+// 	// printf("%lu\n", ft_strlcpy(s1, s2, 4));
 // 	printf("%lu\n", strlcpy(s3, s2, 4));
 // 	printf("%s %s \n", s1, s3);
 // }

@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:02:37 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 17:07:05 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/22 21:34:48 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t			size;
 	const size_t	s_len = ft_strlen(s);
 
-	if (start >= s_len)
-		return (NULL);
+	if (start >= s_len || !len)
+	{
+		dest = ft_calloc(1, 1);
+		return (dest);
+	}
 	size = 0;
 	while (s[size + start])
 	{
