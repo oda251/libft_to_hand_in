@@ -18,6 +18,9 @@ $(NAME): $(OBJS)
 $(OBJS): %.o: %.c
 	cc $(CFRAGS) -I libft.h -c $< -o $@
 
+bonus:
+	
+
 clean:
 	rm -f $(OBJS)
 
