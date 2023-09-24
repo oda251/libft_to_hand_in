@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:45:00 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 18:44:17 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 22:06:57 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ char	**ft_split(char const *s, char c)
 
 	if (!initialize_split(&dest, s, c))
 		return (dest);
-	i = -1;
+	i = 0;
 	start = -1;
 	index = 0;
-	while (s[++i])
+	while (s[i])
 	{
 		if (start >= 0 && s[i] == c)
 		{
@@ -101,8 +101,14 @@ char	**ft_split(char const *s, char c)
 		}
 		else if (start == -1 && s[i] != c)
 			start = i;
+		i++;
 	}
 	if (!put_part(&(dest[index]), s, start, i - start))
 		return (free_all(&dest));
 	return (dest);
+}
+
+int main ()
+{
+	
 }
