@@ -6,11 +6,11 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/23 16:31:47 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 20:11:12 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 21:30:51 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 t_list	*ft_lstnew(void *content)
 {

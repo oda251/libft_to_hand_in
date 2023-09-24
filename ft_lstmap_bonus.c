@@ -6,11 +6,11 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 03:52:02 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 20:11:09 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 21:30:47 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft_bonus.h"
+#include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
