@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:57:28 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/21 20:55:18 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/23 22:53:14 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	size_t	i;
 
+	if (!s || !f)
+		return ;
 	i = 0;
 	while (s[i])
 	{
-		f(i, s);
+		f(i, s + i);
 		i++;
 	}
 }

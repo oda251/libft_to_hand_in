@@ -1,37 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 21:36:02 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 05:42:50 by yoda             ###   ########.fr       */
+/*   Created: 2023/09/23 16:31:04 by yoda              #+#    #+#             */
+/*   Updated: 2023/09/24 20:11:01 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned char	*dst_chr;
-	unsigned char	*src_chr;
-	size_t			i;
+	t_list	*tmp;
+	t_list	*nex;
 
-	i = -1;
-	dst_chr = dst;
-	src_chr = (void *) src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst < src)
+	if (!lst || !*lst || !del)
+		return ;
+	tmp = *lst;
+	while (tmp)
 	{
-		while (++i < len)
-			dst_chr[i] = src_chr[i];
+		nex = tmp->next;
+		ft_lstdelone(tmp, del);
+		tmp = nex;
 	}
-	else
-	{
-		while (len--)
-			dst_chr[len] = src_chr[len];
-	}
-	return (dst);
+	*lst = NULL;
 }

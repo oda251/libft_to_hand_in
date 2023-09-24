@@ -6,18 +6,18 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:57:25 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/19 22:37:36 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 05:46:23 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+size_t	ft_strlen(const char *s)
 {
 	int		len;
 
 	len = 0;
-	while (*str++)
+	while (*s++)
 		len++;
 	return (len);
 }

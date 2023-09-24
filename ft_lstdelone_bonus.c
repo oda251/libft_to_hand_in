@@ -1,37 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 21:36:02 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 05:42:50 by yoda             ###   ########.fr       */
+/*   Created: 2023/09/23 16:31:15 by yoda              #+#    #+#             */
+/*   Updated: 2023/09/24 20:11:03 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	unsigned char	*dst_chr;
-	unsigned char	*src_chr;
-	size_t			i;
-
-	i = -1;
-	dst_chr = dst;
-	src_chr = (void *) src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst < src)
-	{
-		while (++i < len)
-			dst_chr[i] = src_chr[i];
-	}
-	else
-	{
-		while (len--)
-			dst_chr[len] = src_chr[len];
-	}
-	return (dst);
+	if (!(lst && del))
+		return ;
+	del(lst->content);
+	free(lst);
 }

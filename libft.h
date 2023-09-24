@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 20:55:50 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/22 21:56:02 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 20:10:03 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <limits.h>
 
-typedef	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

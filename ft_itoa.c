@@ -6,32 +6,29 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:18:51 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/22 21:53:27 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 04:38:56 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_dest(char **dest, long ln)
+static int	get_dest(char **dest, long ln, int sign)
 {
 	int		digit;
 
 	digit = 0;
-	if (ln < 0)
-	{
-		ln *= (-1);
+	if (sign == -1)
 		digit++;
-	}
 	while (ln)
 	{
 		ln /= 10;
 		digit++;
 	}
-	*dest = malloc(sizeof(char) * digit);
+	*dest = malloc(sizeof(char) * (digit + 1));
 	if (!*dest)
 		return (0);
 	(*dest)[digit] = '\0';
-	if (ln < 0)
+	if (sign == -1)
 	{
 		(*dest)[0] = '-';
 		digit--;
@@ -48,29 +45,54 @@ static void	put_nums(char *dest, long ln, int size)
 	}
 }
 
+static void	*solve(char **dest, long ln, int sign)
+{
+	int		size;
+
+	size = get_dest(dest, ln, sign);
+	if (!size)
+		return (NULL);
+	if (sign < 0)
+		put_nums((*dest) + 1, ln, size);
+	else
+		put_nums(*dest, ln, size);
+	return (dest);
+}
+
+static char	*when_zero(void)
+{
+	char	*dest;
+
+	dest = ft_calloc(1, 2);
+	if (!dest)
+		return (NULL);
+	dest[0] = '0';
+	return (dest);
+}
+
 char	*ft_itoa(int n)
 {
 	char	*dest;
-	int		size;
+	long	ln;
+	int		sign;
 
 	if (n == 0)
 	{
-		dest = malloc(sizeof(char) * 2);
-		dest[0] = '0';
-		dest[1] = '\0';
+		dest = when_zero();
 		return (dest);
 	}
-	size = get_dest(&dest, (long) n);
-	if (!size)
-		return (NULL);
+	ln = n;
+	sign = 1;
 	if (n < 0)
-		put_nums(dest + 1, (long) n * (-1), size);
-	else
-		put_nums(dest, (long) n, size);
+	{
+		ln *= (-1);
+		sign = -1;
+	}
+	solve(&dest, ln, sign);
 	return (dest);
 }
 
 // int main()
 // {
-// 	printf("%s\n", ft_itoa(-212414));
+// 	printf("%s\n", ft_itoa(INT_MAX));
 // }

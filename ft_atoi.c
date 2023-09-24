@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:28:13 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/22 21:52:20 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 05:35:48 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,19 @@
 static int	solve(const char *str, const int sign)
 {
 	unsigned long	num;
+	unsigned long	tmp;
 
 	num = 0;
 	while (ft_isdigit(*str))
 	{
-		if (num >= 1000000000000000000)
-		{
-			if (sign > 0)
-				return (-1);
-			return (0);
-		}
+		tmp = num;
 		num = num * 10 + (*str - '0');
 		if (sign > 0)
 		{
-			if (num >= (unsigned long) LONG_MAX)
+			if (num >= (unsigned long) LONG_MAX || tmp > num)
 				return (-1);
 		}
-		else if (num >= (unsigned long) LONG_MAX + 1)
+		else if (num >= (unsigned long) LONG_MAX + 1 || tmp > num)
 			return (0);
 		str++;
 	}
@@ -63,8 +59,3 @@ int	ft_atoi(const char *str)
 		str++;
 	return (solve(str, sign));
 }
-
-// int	main(int c, char **v) {
-// 	printf("%d\n", ft_atoi(v[1]));
-// 	printf("%d\n", atoi(v[1]));
-// }

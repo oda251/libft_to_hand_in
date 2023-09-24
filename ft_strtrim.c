@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:24:41 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/22 22:52:54 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/24 03:20:52 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t	len;
 	size_t	i;
 
+	if (!s1 || !set)
+		return (NULL);
 	len = count_len_trimmed(s1, set);
 	dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)

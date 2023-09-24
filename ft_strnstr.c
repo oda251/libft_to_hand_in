@@ -22,8 +22,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 		return ((char *)haystack);
 	if (!len)
 		return (NULL);
-	if (!haystack)
-		return (NULL);
 	h_len = ft_strlen(haystack);
 	if (h_len < n_len || len < n_len)
 		return (NULL);
@@ -36,13 +34,3 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
-
-// #include <string.h>
-// int main()
-// {
-// 	char *s1 = "ABCDEFGH";
-// 	char *s2 = "DEF";
-
-// 	printf("%s\n", ft_strnstr(s1, s2, 6));
-// 	printf("%s\n", strnstr(s1, s2, 6));
-// }

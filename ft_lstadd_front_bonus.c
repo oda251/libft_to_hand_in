@@ -1,37 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/19 21:36:02 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 05:42:50 by yoda             ###   ########.fr       */
+/*   Created: 2023/09/24 04:28:19 by yoda              #+#    #+#             */
+/*   Updated: 2023/09/24 20:10:59 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "libft_bonus.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	unsigned char	*dst_chr;
-	unsigned char	*src_chr;
-	size_t			i;
-
-	i = -1;
-	dst_chr = dst;
-	src_chr = (void *) src;
-	if (!dst && !src)
-		return (NULL);
-	if (dst < src)
-	{
-		while (++i < len)
-			dst_chr[i] = src_chr[i];
-	}
-	else
-	{
-		while (len--)
-			dst_chr[len] = src_chr[len];
-	}
-	return (dst);
+	new->next = *lst;
+	*lst = new;
 }

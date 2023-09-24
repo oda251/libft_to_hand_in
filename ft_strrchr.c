@@ -16,8 +16,6 @@ char	*ft_strrchr(const char *s, int c)
 {
 	size_t	i;
 
-	if (!s)
-		return (NULL);
 	i = ft_strlen(s);
 	if ((unsigned char) c == '\0')
 		return ((char *) s + i);
@@ -31,15 +29,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
-
-// int main()
-// {
-// 	char *s1 = "ABCDE";
-// 	char c = 'G';
-// 	char *ans = ft_strrchr(s1, c);
-
-// 	if (ans == NULL)
-// 		printf("NULL\n");
-// 	else
-// 		printf("%s\n", ans);
-// }
