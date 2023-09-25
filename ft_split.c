@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yoda <yoda@studen.42tokyo.jp>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:45:00 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 22:07:56 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/25 16:31:05 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,46 +69,29 @@ static int	initialize_split(char ***dest, char const *s, char c)
 	return (1);
 }
 
-static int	put_part(char **dest, char const *s, long start, size_t n)
-{
-	if (start == -1)
-		return (1);
-	*dest = ft_substr(s, start, n);
-	if (!*dest)
-		return (0);
-	return (1);
-}
-
 char	**ft_split(char const *s, char c)
 {
-	char	**dest;
-	long	start;
-	size_t	i;
+	char		**dest;
+	char		*start;
 	size_t	index;
 
 	if (!initialize_split(&dest, s, c))
 		return (dest);
-	i = 0;
-	start = -1;
+	start = NULL;
 	index = 0;
-	while (s[i])
+	while (*s || start)
 	{
-		if (start >= 0 && s[i] == c)
+		if (!*s || (start && *s == c))
 		{
-			if (!put_part(&(dest[index++]), s, start, i - start))
+			dest[index] = malloc((s - start + 1) * sizeof(char));
+			if (!dest[index])
 				return (free_all(&dest));
-			start = -1;
+			ft_strlcpy(dest[index++], start, s - start + 1);
+			start = NULL;
 		}
-		else if (start == -1 && s[i] != c)
-			start = i;
-		i++;
+		else if (!start && *s != c)
+			start = s;
+		s++;
 	}
-	if (!put_part(&(dest[index]), s, start, i - start))
-		return (free_all(&dest));
 	return (dest);
 }
-
-// int main ()
-// {
-	
-// }
