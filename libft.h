@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdint.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 size_t	ft_strlen(const char *str);

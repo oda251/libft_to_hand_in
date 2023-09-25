@@ -12,63 +12,50 @@
 
 #include "libft.h"
 
-static size_t	count_len_trimmed(char const *s1, char const *set)
+static int	in_set(char c, char const *set)
 {
-	size_t				len;
-	size_t				i;
-	const size_t	len_set = ft_strlen(set);
-
-	i = 0;
-	len = 0;
-	while (s1[i])
+	while (*set)
 	{
-		while (s1[i] && ft_strncmp(s1 + i, set, len_set) == 0)
-			i += len_set;
-		if (s1[i])
-		{
-			len++;
-			i++;
-		}
+		if (c == *set)
+			return (1);
+		set++;
 	}
-	return (len);
+	return (0);
 }
 
-static char	*solve(char *dest, char const *s1, char const *set)
+static size_t	get_start(char const *s1, char const *set)
 {
 	size_t	i;
-	size_t	j;
-	const size_t	len_set = ft_strlen(set);
 
 	i = 0;
-	j = 0;
-	while (s1[i])
-	{
-		while (s1[i] && ft_strncmp(s1 + i, set, len_set) == 0)
-			i += len_set;
-		if (s1[i])
-		{
-			dest[j] = s1[i];
-			j++;
-			i++;
-		}
-	}
-	return (dest);
+	while (s1[i] && in_set(s1[i], set))
+		i++;
+	return (i);
+}
+
+static size_t	get_len(char const *s1, char const *set, const size_t start)
+{
+	size_t	i;
+
+	i = ft_strlen(s1);
+	while (i > 0 && in_set(s1[i - 1], set))
+		i--;
+	return (i - start);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;
 	size_t	len;
+	size_t	start;
 
 	if (!s1 || !set)
 		return (NULL);
-	if (!*set)
-		return (ft_strdup(s1));
-	len = count_len_trimmed(s1, set);
+	start = get_start(s1, set);
+	len = get_len(s1, set, start);
 	dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);
-	dest[len] = '\0';
-	dest = solve(dest, s1, set);
+	ft_strlcpy(dest, s1 + start, len + 1);
 	return (dest);
 }
