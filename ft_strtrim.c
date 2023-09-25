@@ -12,67 +12,63 @@
 
 #include "libft.h"
 
-static int	in_set(char c, char const *set)
-{
-	size_t	i;
-
-	i = 0;
-	while (set[i])
-	{
-		if (c == set[i])
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
 static size_t	count_len_trimmed(char const *s1, char const *set)
 {
-	size_t	len;
-	size_t	i;
+	size_t				len;
+	size_t				i;
+	const size_t	len_set = ft_strlen(set);
 
 	i = 0;
 	len = 0;
-	while (s1[i] && in_set(s1[i], set))
-		i++;
 	while (s1[i])
 	{
-		len++;
-		i++;
-		while (s1[i] && in_set(s1[i], set))
+		while (s1[i] && ft_strncmp(s1 + i, set, len_set) == 0)
+			i += len_set;
+		if (s1[i])
+		{
+			len++;
 			i++;
+		}
 	}
 	return (len);
+}
+
+static char	*solve(char *dest, char const *s1, char const *set)
+{
+	size_t	i;
+	size_t	j;
+	const size_t	len_set = ft_strlen(set);
+
+	i = 0;
+	j = 0;
+	while (s1[i])
+	{
+		while (s1[i] && ft_strncmp(s1 + i, set, len_set) == 0)
+			i += len_set;
+		if (s1[i])
+		{
+			dest[j] = s1[i];
+			j++;
+			i++;
+		}
+	}
+	return (dest);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*dest;
 	size_t	len;
-	size_t	i;
 
 	if (!s1 || !set)
 		return (NULL);
+	if (!*set)
+		return (ft_strdup(s1));
 	len = count_len_trimmed(s1, set);
 	dest = malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);
 	dest[len] = '\0';
-	i = 0;
-	len = 0;
-	while (s1[i])
-	{
-		while (s1[i] && in_set(s1[i], set))
-			i++;
-		dest[len] = s1[i];
-		len++;
-		i++;
-	}
+	dest = solve(dest, s1, set);
 	return (dest);
 }
-
-// int main()
-// {
-// 	printf("%s::\n", ft_strtrim(" \n\t\r    hello \n
-// t\r world     \r\t\n\t \r\n", " \n\t\r"));
-// }

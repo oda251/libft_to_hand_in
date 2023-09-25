@@ -71,9 +71,9 @@ static int	initialize_split(char ***dest, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char		**dest;
-	char		*start;
-	size_t	index;
+	char				**dest;
+	const char	*start;
+	size_t			index;
 
 	if (!initialize_split(&dest, s, c))
 		return (dest);

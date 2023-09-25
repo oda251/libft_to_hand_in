@@ -43,6 +43,7 @@ BNS_SRCS = ft_lstadd_back_bonus.c \
 	ft_lstnew_bonus.c \
 	ft_lstsize_bonus.c
 OBJS = $(SRCS:.c=.o)
+CC = cc
 CFRAGS = -Wall -Wextra -Werror
 
 ifdef WITH_BONUS
@@ -56,7 +57,7 @@ $(NAME): $(OBJS)
 	ranlib $(NAME)
 
 $(OBJS): %.o: %.c
-	cc $(CFRAGS) -I libft.h -c $< -o $@
+	$(CC) $(CFRAGS) -I ./ -c $< -o $@
 
 bonus:
 	make WITH_BONUS=1
