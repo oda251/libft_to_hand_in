@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 21:24:41 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 03:20:52 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/26 18:05:13 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,11 @@ static size_t	get_len(char const *s1, char const *set, const size_t start)
 
 	i = ft_strlen(s1);
 	while (i > 0 && in_set(s1[i - 1], set))
+	{
 		i--;
+		if (i < start)
+			return (0);
+	}
 	return (i - start);
 }
 

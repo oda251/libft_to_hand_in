@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoda <yoda@studen.42tokyo.jp>              +#+  +:+       +#+        */
+/*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:45:00 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/25 16:31:05 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/26 17:37:08 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ static int	initialize_split(char ***dest, char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	char				**dest;
+	char		**dest;
 	const char	*start;
-	size_t			index;
+	size_t		index;
 
 	if (!initialize_split(&dest, s, c))
 		return (dest);
@@ -87,6 +87,8 @@ char	**ft_split(char const *s, char c)
 			if (!dest[index])
 				return (free_all(&dest));
 			ft_strlcpy(dest[index++], start, s - start + 1);
+			if (!*s)
+				break ;
 			start = NULL;
 		}
 		else if (!start && *s != c)

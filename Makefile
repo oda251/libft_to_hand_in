@@ -66,7 +66,7 @@ clean:
 	rm -f $(OBJS) $(BNS_SRCS:.c=.o)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -f $(NAME) a.out
 
 re: fclean all
 
