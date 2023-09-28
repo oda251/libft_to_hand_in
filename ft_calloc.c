@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:36:40 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/22 23:01:01 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/26 20:39:53 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,9 @@ void	*ft_calloc(size_t count, size_t size)
 		return (dest);
 	}
 	if (count > SIZE_MAX / size)
+	{
 		return (NULL);
+	}
 	dest = malloc(sum);
 	if (!dest)
 		return (NULL);

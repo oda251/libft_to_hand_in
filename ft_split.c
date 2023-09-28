@@ -6,7 +6,7 @@
 /*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 15:45:00 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/26 17:37:08 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/28 17:32:51 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ static size_t	words_count(char const *s, char c)
 	return (count);
 }
 
-static char	**free_all(char ***dest)
+static char	**free_all(char ***dest, size_t index)
 {
 	size_t	i;
 
 	i = 0;
-	while ((*dest)[i] != NULL)
+	while (i < index)
 	{
 		free((*dest)[i]);
 		i++;
@@ -85,7 +85,7 @@ char	**ft_split(char const *s, char c)
 		{
 			dest[index] = malloc((s - start + 1) * sizeof(char));
 			if (!dest[index])
-				return (free_all(&dest));
+				return (free_all(&dest, index));
 			ft_strlcpy(dest[index++], start, s - start + 1);
 			if (!*s)
 				break ;
