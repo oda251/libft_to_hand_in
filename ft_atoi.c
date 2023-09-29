@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yoda <yoda@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 20:28:13 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 05:35:48 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/29 17:55:51 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ static int	solve(const char *str, const int sign)
 		if (sign > 0)
 		{
 			if (num >= (unsigned long) LONG_MAX || tmp > num)
-				return (-1);
+				return ((int) LONG_MAX);
 		}
 		else if (num >= (unsigned long) LONG_MAX + 1 || tmp > num)
-			return (0);
+			return ((int) LONG_MIN);
 		str++;
 	}
 	return (sign * num);

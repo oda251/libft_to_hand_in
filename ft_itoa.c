@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoda <yoda@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yoda <yoda@student.42tokyo.jp>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:18:51 by yoda              #+#    #+#             */
-/*   Updated: 2023/09/24 04:38:56 by yoda             ###   ########.fr       */
+/*   Updated: 2023/09/29 17:55:29 by yoda             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,3 @@ char	*ft_itoa(int n)
 	solve(&dest, ln, sign);
 	return (dest);
 }
-
-// int main()
-// {
-// 	printf("%s\n", ft_itoa(INT_MAX));
-// }
